@@ -17,3 +17,25 @@ int main(){
 	
 	return 0;
 }
+
+void shuffle(int &a, int &b, int &c, int &d){
+	int num[] = {a,b,c,d};
+	int size = sizeof(num)/sizeof(num[0]);
+	int num_new[size] = {};
+
+	num_new[0] = num[rand()%4] ;
+	do{
+		num_new[1] = num[rand()%4] ;
+	}while(num_new[1] == num_new[0])  ;
+	do{
+		num_new[2] = num[rand()%4] ;
+	}while(num_new[2] == num_new[0] or num_new[2] == num_new[1])  ;
+	do{
+		num_new[3] = num[rand()%4] ;
+	}while(num_new[3] == num_new[0] or num_new[3] == num_new[1] or num_new[3] == num_new[2])  ;
+
+	a = num_new[0] ;
+	b = num_new[1] ;
+	c = num_new[2] ;
+	d = num_new[3] ;
+}
